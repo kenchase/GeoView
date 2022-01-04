@@ -1,101 +1,78 @@
-# GeoView
+# Turborepo starter with pnpm
 
-The Canadian Geospatial Platform intends to deploy new infrastructure, tools and web integration of GeoCore, a new geospatial metadata lake library capable of supporting multiple metadata standards. In recognition of these desired capabilities, it needs a lightweight viewer to incorporate in their infrastructure. The need is to have a simple and flexible viewer to display geospatial data from GeoCore metadata lake on a map with limited functionalities.
+This is an official starter turborepo.
 
-[Demo](https://jolevesq.github.io/GeoView/index.html)
+## What's inside?
 
-## Solution
+This turborepo uses [pnpm](https://pnpm.io) as a packages manager. It includes the following packages/apps:
 
-GeoView mapping capabilites are based on [Leafet](https://github.com/Leaflet/Leaflet) open source viewer. The overall project uses the latest [React](https://reactjs.org/) framework version 17+. With this in mind, here is the list of the main dependencies
+### Apps and Packages
 
--   [react-leaflet](https://react-leaflet.js.org/) version 3+ to make the link between Leafelt and React
--   [i18next](https://www.i18next.com/) to do localization in English and French
--   [material-ui](https://material-ui.com/) to do the layout
+- `docs`: a [Next.js](https://nextjs.org) app
+- `web`: another [Next.js](https://nextjs.org) app
+- `ui`: a stub React component library shared by both `web` and `docs` applications
+- `config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `tsconfig`: `tsconfig.json`s used throughout the monorepo
 
-## Developpement
+Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-Developement is made with [Visual Studio Code](https://code.visualstudio.com/) and uses few extentions to help linting and formating
+### Utilities
 
--   Prettier
--   ESLint
--   Better Comments
+This turborepo has some additional tools already setup for you:
 
-## Building the project
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Jest](https://jestjs.io) test runner for all things JavaScript
+- [Prettier](https://prettier.io) for code formatting
 
-To install the project, just run
-`npm install`
+## Setup
 
-To serve the project, just run
-`npm run serve` and GeoView will be serve from http://localhost:8080/
+This repository is used in the `npx create-turbo@latest` command, and selected when choosing which package manager you wish to use with your monorepo (PNPM).
 
-## Deploy to gh-pages
+### Build
 
-To deploy the project, just run
-`npm run build`
+To build all apps and packages, run the following command:
 
-Then push the dist folder to your gh-pages
-`npm run deploy`
-
-The project is now serve inside your GitHub gh-pages at
-`https://[GITHUB-USERNAME].github.io/GeoView/index.html
-
-_Make sure GitHub pages are active inside your origin repository_
-
-## Usage
-
-We'll go through the simplest way to use the Canadian Geospatial Platform Viewer.
-
-First, grab the most recent release from the [github releases](https://github.com/Canadian-Geospatial-Platform/GeoView/releases). Place the files cgpv-main.js and cgpv-styles.css within your webpage's folder structure. Place also the img and locales folder at the same place. We usually put.
-
-Then you want to include those files on your page
-
-Within head, should be before including any other libraries
-
-```html
-<script src="/cgpv-main.js"></script>
+```
+cd my-turborepo
+pnpm run build
 ```
 
-Now that you have the required files on your page we should add the map element. There is 3 ways to do this
+### Develop
 
--   Map div element
-    ```html
-    <div
-        id="mapLCC"
-        class="llwp-map"
-        data-leaflet="{ 'projection': 3978, 'zoom': 12, 'center': [45,-75], 'language': 'fr-CA', 'basemapOptions': { 'id': 'transport', 'shaded': true, 'labeled': true }, layers:[] }"
-    ></div>
-    ```
--   _Work in progress_ -> Url: The url will have parameters to setup the map. The map div, a div element with class **llwp-map**, must be on the page
-    ```html
-    <div id="mapLCC" class="llwp-map"></div>
-    ```
--   _Work in progress_ -> Code: call the create map function from cgpv-main.js with needed parameters
+To develop all apps and packages, run the following command:
 
-#### Parameters
+```
+cd my-turborepo
+pnpm run dev
+```
 
--   projection: The basemap projection to use for the map. Accepted values are 3857 (Web Mercator) or 3978 (LCC)
--   zoom: The basemap zomm level. Accepted value is a number between 0 and 20
--   center: The default center extent when the map loads. Accepted value is a pair of coordinates [lattitude, longitude]
--   language: The map language for labels and tooltips. Accepted values are en-CA and fr-CA
--   basemapOptions: Options to display a basemap, currently builtin basemaps are `transport`, `shaded`, and `labeled`
-    -   id: An id to select the main basemap, it should be either `transport`, `shaded` or `simple`
-    -   shaded: a boolean value to enable or disable shaded basemap (if id is set to `shaded` then this should be false)
-    -   labeled: a boolean value to enable or disable labels
--   layers: Array of layers to add to the map
-    -   name: the layer's name
-    -   url: The service url
-    -   type: The layer type. Accepted values are esriFeature, esriDynamic, ogcWMS
-    -   entries: For esriDynamic and ogcWMS a list of entries must be specified
+### Remote Caching
 
-    ```
-        'layers':[
-            { 'name': 'Census', 'url': 'https://webservices.maps.canada.ca/arcgis/services/StatCan/census_subdivisions_2016_en/MapServer/WMSServer', 'type': 'ogcWMS', 'entries': '0' },
-            { 'name': 'Energy', 'url': 'https://geoappext.nrcan.gc.ca/arcgis/rest/services/NRCAN/Investing_Energy_Canada_en/MapServer', 'type': 'esriDynamic', 'entries': '0, 2' },
-            { 'name': 'Geochron', 'url': 'https://geoappext.nrcan.gc.ca/arcgis/rest/services/GSCC/Geochronology/MapServer', 'type': 'esriDynamic', 'entries': '0' },
-            { 'name': 'Geomet', 'url': 'https://geo.weather.gc.ca/geomet', 'type': 'ogcWMS', 'entries': 'RAQDPS-FW.CE_PM2.5-DIFF-YAvg' }
-        ]
-    ```
+Turborepo can use a technique known as [Remote Caching (Beta)](https://turborepo.org/docs/features/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
 
-## Contributing to the project
+By default, Turborepo will cache locally. To enable Remote Caching (Beta) you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
 
-see our [wiki](https://github.com/Canadian-Geospatial-Platform/GeoView/wiki/Contributing-Guideline)
+```
+cd my-turborepo
+pnpx turbo login
+```
+
+This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+
+Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
+
+```
+pnpx turbo link
+```
+
+## Useful Links
+
+Learn more about the power of Turborepo:
+
+- [Pipelines](https://turborepo.org/docs/features/pipelines)
+- [Caching](https://turborepo.org/docs/features/caching)
+- [Remote Caching (Beta)](https://turborepo.org/docs/features/remote-caching)
+- [Scoped Tasks](https://turborepo.org/docs/features/scopes)
+- [Configuration Options](https://turborepo.org/docs/reference/configuration)
+- [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
