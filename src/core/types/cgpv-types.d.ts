@@ -383,6 +383,9 @@ export declare type TypeAppBarProps = {
     about: TypeLangString;
 };
 export declare type TypeNavBarProps = TypeJsonObject;
+export declare type TypeFooterbarProps = {
+    attribution: string;
+};
 export declare type TypeNorthArrowProps = TypeJsonObject;
 export declare type TypeMapComponents = 'appbar' | 'navbar' | 'northArrow';
 export declare type TypeMapCorePackages = 'overview-map' | 'basemap-switcher' | 'layers-panel' | 'details-panel' | 'geolocator';

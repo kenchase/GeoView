@@ -1,6 +1,7 @@
 import EventEmitter from 'eventemitter3';
 import { MapEventKey } from './constants/map';
 import { LayerEventKey } from './constants/layer';
+import { AttributionEventKey } from './constants/attribution';
 import { AppbarEventKey } from './constants/appbar';
 import { NavbarEventKey } from './constants/navbar';
 import { SnackbarEventKey } from './constants/snackbar';
@@ -34,10 +35,11 @@ export declare const EVENT_NAMES: {
     PANEL: Record<PanelEventKey, EventStringId>;
     SLIDER: Record<SliderEventKey, EventStringId>;
     VECTOR: Record<VectorEventKey, EventStringId>;
+    ATTRIBUTION: Record<"EVENT_ATTRIBUTION_UPDATE", EventStringId>;
 };
-export declare type EventCategories = 'MAP' | 'LAYER' | 'APPBAR' | 'NAVBAR' | 'SNACKBAR' | 'BASEMAP' | 'OVERVIEW_MAP' | 'DETAILS_PANEL' | 'MARKER_ICON' | 'CLUSTER_ELEMENT' | 'DRAWER' | 'MODAL' | 'PANEL' | 'SLIDER' | 'VECTOR';
-export declare type EventKey = MapEventKey | LayerEventKey | AppbarEventKey | NavbarEventKey | SnackbarEventKey | BasmapEventKey | OverviewEventKey | DetailPanelEventKey | MarkerIconEventKey | ClusterEventKey | DrawerEventKey | ModalEventKey | PanelEventKey | SliderEventKey | VectorEventKey;
-export declare type EventStringId = 'map/loaded' | 'map/reload' | 'map/moveend' | 'map/zoomend' | 'map/add_component' | 'map/remove_component' | 'map/inkeyfocus' | 'map/crosshair_enable_disable' | 'layer/add' | 'layer/added' | 'layer/remove' | 'layer/get_layers' | 'appbar/panel_create' | 'appbar/panel_remove' | 'navbar/button_panel_create' | 'navbar/button_panel_remove' | 'navbar/toggle_controls' | 'snackbar/open' | 'basemap/layers_update' | 'overview_map/toggle' | 'details_panel/crosshair_enter' | 'marker_icon/show' | 'marker_icon/hide' | 'cluster_element/add' | 'cluster_element/remove' | 'cluster_element/added' | 'cluster_element/start_blinking' | 'cluster_element/stop_blinking' | 'cluster_element/selection_has_changed' | 'box/zoom_or_select_end' | 'drawer/open_close' | 'modal/create' | 'modal/open' | 'modal/close' | 'modal/update' | 'panel/open' | 'panel/close' | 'panel/add_action' | 'panel/remove_action' | 'panel/change_content' | 'slider/on_change_value' | 'slider/set_values' | 'slider/set_min_max' | 'vector/add' | 'vector/remove' | 'vector/added' | 'vector/off' | 'vector/on';
+export declare type EventCategories = 'MAP' | 'LAYER' | 'APPBAR' | 'NAVBAR' | 'SNACKBAR' | 'BASEMAP' | 'OVERVIEW_MAP' | 'DETAILS_PANEL' | 'MARKER_ICON' | 'CLUSTER_ELEMENT' | 'DRAWER' | 'MODAL' | 'PANEL' | 'SLIDER' | 'VECTOR' | 'ATTRIBUTION';
+export declare type EventKey = MapEventKey | LayerEventKey | AppbarEventKey | NavbarEventKey | SnackbarEventKey | BasmapEventKey | OverviewEventKey | DetailPanelEventKey | MarkerIconEventKey | ClusterEventKey | DrawerEventKey | ModalEventKey | PanelEventKey | SliderEventKey | VectorEventKey | AttributionEventKey;
+export declare type EventStringId = 'map/loaded' | 'map/reload' | 'map/moveend' | 'map/zoomend' | 'map/add_component' | 'map/remove_component' | 'map/inkeyfocus' | 'map/crosshair_enable_disable' | 'layer/add' | 'layer/added' | 'layer/remove' | 'layer/get_layers' | 'appbar/panel_create' | 'appbar/panel_remove' | 'navbar/button_panel_create' | 'navbar/button_panel_remove' | 'navbar/toggle_controls' | 'snackbar/open' | 'basemap/layers_update' | 'overview_map/toggle' | 'details_panel/crosshair_enter' | 'marker_icon/show' | 'marker_icon/hide' | 'cluster_element/add' | 'cluster_element/remove' | 'cluster_element/added' | 'cluster_element/start_blinking' | 'cluster_element/stop_blinking' | 'cluster_element/selection_has_changed' | 'box/zoom_or_select_end' | 'drawer/open_close' | 'modal/create' | 'modal/open' | 'modal/close' | 'modal/update' | 'panel/open' | 'panel/close' | 'panel/add_action' | 'panel/remove_action' | 'panel/change_content' | 'slider/on_change_value' | 'slider/set_values' | 'slider/set_min_max' | 'vector/add' | 'vector/remove' | 'vector/added' | 'vector/off' | 'vector/on' | 'attribution/update';
 /**
  * Class used to handle event emitting and subscribing for the API
  *

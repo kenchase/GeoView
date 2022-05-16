@@ -6,8 +6,7 @@ import { Plugin } from './plugin';
 import { GeoUtilities } from '../geo/utils/utilities';
 import { DateMgt } from '../core/utils/date-mgt';
 import * as MarkerDefinitions from '../core/types/marker-definitions';
-import { generateId } from '../core/utils/utilities';
-import { addUiComponent } from '../core/utils/utilities';
+import { generateId, addUiComponent } from '../core/utils/utilities';
 /**
  * Class used to handle api calls (events, functions etc...)
  *
@@ -32,6 +31,7 @@ export declare class API {
         PANEL: Record<import("./events/constants/panel").PanelEventKey, import("./events/event").EventStringId>;
         SLIDER: Record<import("./events/constants/slider").SliderEventKey, import("./events/event").EventStringId>;
         VECTOR: Record<import("./events/constants/vector").VectorEventKey, import("./events/event").EventStringId>;
+        ATTRIBUTION: Record<"EVENT_ATTRIBUTION_UPDATE", import("./events/event").EventStringId>;
     };
     projection: Projection;
     projectNames: {
