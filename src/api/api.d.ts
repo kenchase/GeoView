@@ -42,7 +42,7 @@ export declare class API {
     layerTypes: Record<import("../core/types/cgpv-types").LayerTypesKey, import("../core/types/cgpv-types").TypeWebLayers>;
     maps: Record<string, MapViewer>;
     isReady: number;
-    readyCallback: () => void;
+    readyCallback?: () => void;
     plugin: Plugin;
     geoUtilities: GeoUtilities;
     dateUtilities: DateMgt;
@@ -63,6 +63,11 @@ export declare class API {
      * @param callback a callback to make once the map has rendered
      */
     ready: (callback: () => void) => void;
+    /**
+     * Call map ready functions and the init callback once everything is done loading
+     * including plugins
+     */
+    callInitCallback: () => void;
     /**
      * Get the instance of a map by it's ID to access API functions
      *

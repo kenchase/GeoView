@@ -1,5 +1,5 @@
 import L from 'leaflet';
-import { AbstractWebLayersClass, TypeGeoJSONLayer, TypeBaseWebLayersConfig } from '../../../../core/types/cgpv-types';
+import { AbstractWebLayersClass, TypeGeoJSONLayer, TypeBaseWebLayersConfig, TypeFilterFeatures, TypeFilterQuery } from '../../../../core/types/cgpv-types';
 export declare const layerConfigIsGeoJSON: (verifyIfLayer: TypeBaseWebLayersConfig) => verifyIfLayer is TypeGeoJSONLayer;
 export declare const webLayerIsGeoJSON: (verifyIfWebLayer: AbstractWebLayersClass) => verifyIfWebLayer is GeoJSON;
 /**
@@ -10,6 +10,7 @@ export declare const webLayerIsGeoJSON: (verifyIfWebLayer: AbstractWebLayersClas
  */
 export declare class GeoJSON extends AbstractWebLayersClass {
     layer: L.GeoJSON | null;
+    features: Object[];
     /**
      * Initialize layer
      *
@@ -23,7 +24,8 @@ export declare class GeoJSON extends AbstractWebLayersClass {
      * @param {TypeGeoJSONLayer} layer the layer configuration
      * @return {Promise<L.GeoJSON | null>} layers to add to the map
      */
-    add(layer: TypeGeoJSONLayer): Promise<L.GeoJSON | null>;
+    add(geoLayer: TypeGeoJSONLayer): Promise<L.GeoJSON | null>;
+    filterFeatures(filters: TypeFilterQuery[]): TypeFilterFeatures;
     /**
      * Set Layer Opacity
      * @param {number} opacity layer opacity

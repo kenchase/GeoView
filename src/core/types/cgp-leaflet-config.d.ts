@@ -1,5 +1,6 @@
 import L from 'leaflet';
 import 'leaflet.markercluster/src';
+import 'leaflet.heat';
 import 'react-leaflet';
 export declare const SelectBox: any;
 declare module 'leaflet' {

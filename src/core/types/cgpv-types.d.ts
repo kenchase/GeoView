@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import * as ReactLeaflet from 'react-leaflet';
 import * as ReactLeafletCore from '@react-leaflet/core';
 import L from 'leaflet';
+import { AnySchemaObject } from 'ajv';
 import { TooltipProps, ButtonProps, ButtonGroupProps, CircularProgressProps, DividerProps, DrawerProps, FadeProps, IconButtonProps, ListItemProps, ListProps, DialogProps, BaseTextFieldProps, useMediaQuery, AutocompleteProps, TypographyProps, SliderProps, CheckboxProps, StepperProps, StepLabelProps, StepContentProps, StepProps, TextFieldProps, SelectProps, MenuItemProps, InputLabelProps, SelectChangeEvent, ListSubheaderProps } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import makeStyles from '@mui/styles/makeStyles';
@@ -81,6 +82,7 @@ export declare type TypeCGPV = {
 };
 export declare type TypeCallback = (callback: () => void) => void;
 export declare type TypeFunction = () => void;
+export declare type TypeSchemaObject = AnySchemaObject;
 export interface TypeApi extends API, Event, Plugin {
 }
 export interface TypeCSSStyleDeclaration extends CSSStyleDeclaration {
@@ -93,6 +95,13 @@ export declare type TypeChildren = React.ReactNode;
 export declare type TypeMapContext = {
     id: string;
     interaction: string;
+};
+/**
+ * Update scale event properties
+ */
+export declare type TypeUpdateScaleEvent = {
+    pixels: number;
+    distance: string;
 };
 export declare type TypeJsonValue = null | string | number | boolean | TypeJsonObject[] | {
     [key: string]: TypeJsonObject;
@@ -200,7 +209,10 @@ export declare type TypePluginStructure = {
     props: TypeJsonValue;
     translate: TypeJsonValue;
     translations: TypeJsonObject;
+    configObj: TypeJsonObject;
     makeStyles: typeof makeStyles;
+    schema?: () => TypeSchemaObject;
+    defaultConfig?: () => TypeJsonObject;
     added?: () => void;
     removed?: () => void;
 };
@@ -388,7 +400,7 @@ export declare type TypeFooterbarProps = {
 };
 export declare type TypeNorthArrowProps = TypeJsonObject;
 export declare type TypeMapComponents = 'appbar' | 'navbar' | 'northArrow';
-export declare type TypeMapCorePackages = 'overview-map' | 'basemap-switcher' | 'layers-panel' | 'details-panel' | 'geolocator';
+export declare type TypeMapCorePackages = 'overview-map' | 'basemap-panel' | 'layers-panel' | 'details-panel' | 'geolocator';
 export declare type TypeExternalPackages = {
     name: string;
     configUrl?: string;
@@ -802,3 +814,22 @@ export declare const DEFAULT_TIME_PRECISION: {
     second: string;
 };
 export declare type TimePrecision = 'hour' | 'minute' | 'second';
+/**
+ * Type for return value for feature layer like GeoJSON, OGC API, Vector
+ */
+export declare type TypeFilterFeatures = {
+    pass: TypeJsonObject[];
+    fail: TypeJsonObject[];
+};
+/**
+ * Type for building filter query
+ */
+export declare type TypeFilterQuery = {
+    connector?: '&&' | '||';
+    field: string;
+    operator: '===' | '!==' | '<=' | '>=' | '<' | '>';
+    value: string | number;
+};
+export declare const FILTER_OPERATOR: {
+    [key: string]: (a: string | number, b: string | number) => boolean;
+};

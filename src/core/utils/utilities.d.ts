@@ -32,3 +32,7 @@ export declare function getXMLHttpRequest(url: string): Promise<string>;
  * @param {string} targetDivId the div id to insert the component in
  */
 export declare function addUiComponent(targetDivId: string, component: React.ReactElement): void;
+/**
+ * Add any functions that will extend leaflet features
+ */
+export declare function extendLeafletFeatures(): void;
