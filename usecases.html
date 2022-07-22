@@ -1,29 +1,29 @@
 <!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Canadian Geospatial Platform Viewer</title><link rel="shortcut icon" href="./favicon.ico"/><meta name="msapplication-TileColor" content="#da532c"/><meta name="msapplication-config" content="./img/browserconfig.xml"/><meta name="theme-color" content="#ffffff"/><meta name="msapplication-TileColor" content="#da532c"/><meta name="theme-color" content="#ffffff"/><link href="https://fonts.googleapis.com/css?family=Roboto|Montserrat:200,300,400,900|Merriweather" rel="stylesheet"/><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/><link rel="stylesheet" href="css/style.css"/><script src="cgpv-main.js"></script></head><body><div class="header-table"><table><tbody><tr><td><img class="header-logo" alt="logo" src="./img/Logo.png"/></td><td class="header-title"><h1><strong>Use Case</strong></h1></td></tr></tbody></table><table><tbody><tr><td><a href="./index.html">Main</a><br/><a href="#HUC1">Use Case 1</a><br/><a href="#HUC2">Use Case 2</a><br/><a href="#HUC3">Use Case 3</a><br/><a href="#HUC4">Use Case 4</a><br/></td></tr></tbody></table><table><tbody><tr><td>This page is used to showcase how the viewer may be use in different situation. There is, at the moment, 4 use cases to address.</td></tr></tbody></table></div><div><h3 id="HUC1">1. Display Metadata</h3><h3><a href="#top">Top of the page</a></h3><div><div id="UC1" class="llwp-map" data-lang="en-CA" data-config="{
             'map': {
               'interaction': 'dynamic',
-              'initialView': {
+              'view': {
                 'zoom': 4,
-                'center': [-100, 60]
+                'center': [-100, 60],
+                'projection': 3978
               },
-              'projection': 3978,
               'basemapOptions': {
                 'id': 'transport',
                 'shaded': true,
                 'labeled': true
               }
             },
-            'components': ['overviewMap'],
+            'components': ['overview-map'],
             'corePackages': ['basemap-panel'],
             'theme': 'dark',
             'languages': ['en-CA']
           }"></div></div><p>This map is in LLC projection with an English interface.</p><p><strong>Configuration Snippet:</strong></p><div id="UC1CS" class="panel"></div></div><hr/><div><h3 id="HUC2">2. Display Thumbnail</h3><h3><a href="#top">Top of the page</a></h3><div id="UC2" class="llwp-map" data-lang="en-CA" data-config="{
           'map': {
             'interaction': 'dynamic',
-            'initialView': {
+            'view': {
               'zoom': 4,
-              'center': [-100, 60]
+              'center': [-100, 60],
+              'projection': 3857
             },
-            'projection': 3857,
             'basemapOptions': {
               'id': 'transport',
               'shaded': false,
@@ -146,42 +146,42 @@
                 'fr': '# Un exemple de démarque'
             }
           },
-          'components': ['overviewMap'],
+          'components': ['overview-map'],
           'corePackages': ['basemap-panel'],
           'languages': ['en-CA']
         }"></div><p>Use to display a map like a thumbnail with minimun functions.</p><p><strong>Configuration Snippet:</strong></p><div id="UC2CS" class="panel"></div></div><div><h3 id="HUC3">3. Geo Search</h3><h3><a href="#top">Top of the page</a></h3><div id="UC3" class="llwp-map" data-lang="en-CA" data-config="{
           'map': {
             'interaction': 'dynamic',
-            'initialView': {
+            'view': {
               'zoom': 4,
-              'center': [-100, 60]
+              'center': [-100, 60],
+              'projection': 3978
             },
-            'projection': 3978,
             'basemapOptions': {
               'id': 'simple',
               'shaded': true,
               'labeled': false
             }
           },
-          'components': ['overviewMap'],
+          'components': ['overview-map'],
           'corePackages': [],
           'theme': 'dark',
           'languages': ['en-CA']
         }"></div><p>Description</p><p><strong>Configuration Snippet:</strong></p><div id="UC3CS" class="panel"></div></div><div><h3 id="HUC4">4. Simple viewer</h3><h3><a href="#top">Top of the page</a></h3><div id="UC4" class="llwp-map" data-lang="en-CA" data-config="{
           'map': {
             'interaction': 'dynamic',
-            'initialView': {
+            'view': {
               'zoom': 4,
-              'center': [-100, 60]
+              'center': [-100, 60],
+              'projection': 3978
             },
-            'projection': 3978,
             'basemapOptions': {
               'id': 'simple',
               'shaded': true,
               'labeled': false
             }
           },
-          'components': ['overviewMap'],
+          'components': ['overview-map'],
           'corePackages': [],
           'theme': 'dark',
           'languages': ['en-CA']

@@ -1,11 +1,11 @@
 <!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Canadian Geospatial Platform Viewer</title><link rel="shortcut icon" href="./favicon.ico"/><meta name="msapplication-TileColor" content="#da532c"/><meta name="msapplication-config" content="./img/browserconfig.xml"/><meta name="theme-color" content="#ffffff"/><meta name="msapplication-TileColor" content="#da532c"/><meta name="theme-color" content="#ffffff"/><link href="https://fonts.googleapis.com/css?family=Roboto|Montserrat:200,300,400,900|Merriweather" rel="stylesheet"/><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/><link rel="stylesheet" href="css/style.css"/><script src="cgpv-main.js"></script></head><body><div class="header-table"><table><tbody><tr><td><img class="header-logo" alt="logo" src="./img/Logo.png"/></td><td class="header-title"><h1><strong>Layers</strong></h1></td></tr></tbody></table><table><tbody><tr><td><a href="./index.html">Main</a><br/><a href="#HLYR1">1. WMS Layer</a><br/><a href="#HLYR2">2. XYZ Tiles Layer</a><br/><a href="#HLYR3">3. Esri Dynamic Servive Layer</a><br/><a href="#HLYR4">4. Esri Feature Servive Layer</a><br/><a href="#HLYR5">5. GeoJSON Layer</a><br/><a href="#HLYR6">6. WFS Layer</a><br/><a href="#HLYR7">7. OGC API Feature Layer</a><br/><a href="#HLYR8">8. GeoCore UUID Layer</a></td></tr></tbody></table><table><tbody><tr><td>This page is used to showcase how the viewer may show different layer types</td></tr></tbody></table></div><div><h3 id="HLYR1">1.WMS Layer</h3><h3><a href="#top">Top of the page</a></h3><div id="LYR1" class="llwp-map" data-lang="en-CA" data-config="{
           'map': {
             'interaction': 'dynamic',
-            'initialView': {
+            'view': {
               'zoom': 4,
-              'center': [-100, 60]
+              'center': [-100, 60],
+              'projection': 3857
             },
-            'projection': 3857,
             'basemapOptions': {
               'id': 'transport',
               'shaded': false,
@@ -36,11 +36,11 @@
         }"></div><div><h3>Legend</h3><img id="wmsLegend"/></div><p>This map has a wms layer added from configuration.</p><p><strong>Configuration Snippet:</strong></p><div id="LYR1CS" class="panel"></div></div><div><h3 id="HLYR2">2. XYZ Tiles Layer</h3><h3><a href="#top">Top of the page</a></h3><div id="LYR2" class="llwp-map" data-lang="en-CA" data-config="{
         'map': {
           'interaction': 'dynamic',
-          'initialView': {
+          'view': {
             'zoom': 4,
-            'center': [-100, 60]
+            'center': [-100, 60],
+            'projection': 3857
           },
-          'projection': 3857,
           'basemapOptions': {
             'id': 'transport',
             'shaded': false,
@@ -66,11 +66,11 @@
       }"></div><p>This map has a XYZ Tiles layer added from configuration.</p><p><strong>Configuration Snippet:</strong></p><div id="LYR2CS" class="panel"></div></div><hr/><div><h3 id="HLYR3">3. Esri dynamic layer</h3><h3><a href="#top">Top of the page</a></h3><div id="LYR3" class="llwp-map" data-lang="en-CA" data-config="{
           'map': {
             'interaction': 'dynamic',
-            'initialView': {
+            'view': {
               'zoom': 4,
-              'center': [-100, 60]
+              'center': [-100, 60],
+              'projection': 3978
             },
-            'projection': 3978,
             'basemapOptions': {
               'id': 'transport',
               'shaded': true,
@@ -104,11 +104,11 @@
         }"></div><div id="esriDynamicLayerLegend"><h3>Legend</h3></div><p>This map has a Esri dynamic layer added from configuration.</p><p><strong>Configuration Snippet:</strong></p><div id="LYR3CS" class="panel"></div></div><div><h3 id="HLYR4">4. Esri feature layer</h3><h3><a href="#top">Top of the page</a></h3><div id="LYR4" class="llwp-map" data-lang="en-CA" data-config="{
           'map': {
             'interaction': 'dynamic',
-            'initialView': {
+            'view': {
               'zoom': 4,
-              'center': [-100, 60]
+              'center': [-100, 60],
+              'projection': 3978
             },
-            'projection': 3978,
             'basemapOptions': {
               'id': 'nogeom',
               'shaded': true,
@@ -134,11 +134,11 @@
         }"></div><p>This map has a Esri feature layer added from configuration.</p><p><strong>Configuration Snippet:</strong></p><div id="LYR4CS" class="panel"></div></div><div><h3 id="HLYR5">5. GeoJSON Layer</h3><h3><a href="#top">Top of the page</a></h3><div id="LYR5" class="llwp-map" data-lang="en-CA" data-config="{
           'map': {
             'interaction': 'dynamic',
-            'initialView': {
+            'view': {
               'zoom': 4,
-              'center': [-100, 60]
+              'center': [-100, 60],
+              'projection': 3978
             },
-            'projection': 3978,
             'basemapOptions': {
               'id': 'nogeom',
               'shaded': true,
@@ -164,11 +164,11 @@
         }"></div><p>This map has one GeoJSON layer added from configuration. and another geoJSON layer can be added/removed by clicking the buttons</p><button id="add-geojson">Add GeoJSON Layer</button><button id="remove-geojson">Remove GeoJSON Layer</button><br/><label id="new-layer-id-label">Added Layer ID :</label><label id="new-layer-id"></label><p><strong>Configuration Snippet:</strong></p><div id="LYR5CS" class="panel"></div></div><div><h3 id="HLYR6">6. WFS Layer</h3><h3><a href="#top">Top of the page</a></h3><div id="LYR6" class="llwp-map" data-lang="en-CA" data-config="{
         'map': {
           'interaction': 'dynamic',
-          'initialView': {
+          'view': {
             'zoom': 8,
-            'center': [-71.370748, 42.001058]
+            'center': [-71.370748, 42.001058],
+            'projection': 3857
           },
-          'projection': 3857,
           'basemapOptions': {
             'id': 'transport',
             'shaded': false,
@@ -199,11 +199,11 @@
       }"></div><p>This map has a WFS layer added from configuration.</p><p><strong>Configuration Snippet:</strong></p><div id="LYR6CS" class="panel"></div></div><div><h3 id="HLYR7">7. OGC API Feature Layer</h3><h3><a href="#top">Top of the page</a></h3><div id="LYR7" class="llwp-map" data-lang="en-CA" data-config="{
           'map': {
             'interaction': 'dynamic',
-            'initialView': {
+            'view': {
               'zoom': 3,
-              'center': [0, 20]
+              'center': [0, 20],
+              'projection': 3857
             },
-            'projection': 3857,
             'basemapOptions': {
               'id': 'transport',
               'shaded': false,
@@ -234,11 +234,11 @@
         }"></div><p>This map has an OGC API feature layer added from configuration.</p><p><strong>Configuration Snippet:</strong></p><div id="LYR7CS" class="panel"></div></div><div><h3 id="HLYR8">8. GeoCore UUID Layer</h3><h3><a href="#top">Top of the page</a></h3><div id="LYR8" class="llwp-map" data-lang="en-CA" data-config="{
           'map': {
             'interaction': 'dynamic',
-            'initialView': {
+            'view': {
               'zoom': 4,
-              'center': [-100, 60]
+              'center': [-100, 60],
+              'projection': 3857
             },
-            'projection': 3857,
             'basemapOptions': {
               'id': 'transport',
               'shaded': false,
